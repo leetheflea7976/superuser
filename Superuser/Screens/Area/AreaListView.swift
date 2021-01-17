@@ -23,6 +23,7 @@ struct AreaListView: View {
         List {
             ForEach(_transform(areas)) { area in
                 AreaListItemView(area: area)
+                    .environment(\.managedObjectContext, viewContext)
             }
             .onDelete(perform: deleteAreas)
         }
@@ -47,16 +48,29 @@ struct AreaListView: View {
 }
 
 struct AreaListItemView: View {
-    var area: Area
+    @ObservedObject var area: Area
+    @State private var isLinkActive = false
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
-        HStack {
-            Text(area.emoji!)
-            Text(area.title!)
-                .font(.system(.body, design: .serif))
-                .padding(.leading, 4)
-            Spacer()
-            HealthPriorityDualCircleView(health: area.health, priority: area.priority)
+        Button {
+            isLinkActive = true
+        } label: {
+            HStack {
+                Text(area.emoji!)
+                Text(area.title!)
+                    .font(.system(.body, design: .serif))
+                    .padding(.leading, 4)
+                Spacer()
+                DualProgressCircleView(innerValue: area.health, outerValue: area.priority)
+            }
         }
+        .background(
+            NavigationLink(destination: AreaDetailView(area: area).environment(\.managedObjectContext, viewContext), isActive: $isLinkActive) {
+                EmptyView()
+            }
+            .hidden()
+        )
     }
 }
 

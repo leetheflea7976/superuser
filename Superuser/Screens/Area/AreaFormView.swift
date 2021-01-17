@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct AreaFormView: View {
+    var area: Area?
+    
     @State var title = ""
     @State var emoji = ""
     @State var health: Int16 = 5
     @State var priority: Int16 = 5
     @State var type = "Personal"
     
-    
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     
     private func addArea() {
         withAnimation {
-            let newArea = Area(context: viewContext)
-            newArea.id = UUID()
-            newArea.createdAt = Date()
+            let newArea = area ?? Area(context: viewContext)
+            newArea.id = area?.id ?? UUID()
+            newArea.createdAt = area?.createdAt ?? Date()
             newArea.emoji = emoji
             newArea.title = title
             newArea.priority = priority
             newArea.health = health
             newArea.isProfessional = type == "Professional"
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -41,7 +42,7 @@ struct AreaFormView: View {
     }
     
     var body: some View {
-        Text("Add New Area")
+        Text(area == nil ? "Add New Area" : "Edit Area")
             .fontWeight(.bold)
             .font(.title)
             .padding(.top, 24)
@@ -65,9 +66,16 @@ struct AreaFormView: View {
                     presentationMode.wrappedValue.dismiss()
                     addArea()
                 } label: {
-                    Text("Add Area")
+                    Text(area == nil ? "Add Area" : "Save")
                 }
             }
+        }
+        .onAppear {
+            title = area?.title ?? ""
+            emoji = area?.emoji ?? ""
+            health = area?.health ?? 5
+            priority = area?.priority ?? 5
+            type = area?.isProfessional == true ? "Professional" : "Personal"
         }
     }
 }

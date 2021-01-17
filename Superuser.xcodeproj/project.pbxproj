@@ -13,9 +13,10 @@
 		CF4BD8B025B170F700DAC15F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF4BD8AF25B170F700DAC15F /* Preview Assets.xcassets */; };
 		CF4BD8B225B170F700DAC15F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4BD8B125B170F700DAC15F /* Persistence.swift */; };
 		CF4BD8B525B170F700DAC15F /* Superuser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF4BD8B325B170F700DAC15F /* Superuser.xcdatamodeld */; };
+		CF51E15925B3F7BB00FFA3B9 /* AreaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E15825B3F7BB00FFA3B9 /* AreaDetailView.swift */; };
 		CFFD78AD25B2DF0200241801 /* AreaMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78AC25B2DF0200241801 /* AreaMainScreen.swift */; };
 		CFFD78B125B2EFC300241801 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B025B2EFC300241801 /* ProgressCircleView.swift */; };
-		CFFD78B525B2F06300241801 /* HealthPriorityDualCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B425B2F06300241801 /* HealthPriorityDualCircleView.swift */; };
+		CFFD78B525B2F06300241801 /* HPDualCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B425B2F06300241801 /* HPDualCircleView.swift */; };
 		CFFD78B825B2F0DB00241801 /* AreaFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B725B2F0DB00241801 /* AreaFormView.swift */; };
 		CFFD78BB25B2F11B00241801 /* AreaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78BA25B2F11B00241801 /* AreaListView.swift */; };
 /* End PBXBuildFile section */
@@ -29,9 +30,10 @@
 		CF4BD8B125B170F700DAC15F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CF4BD8B425B170F700DAC15F /* Superuser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Superuser.xcdatamodel; sourceTree = "<group>"; };
 		CF4BD8B625B170F700DAC15F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF51E15825B3F7BB00FFA3B9 /* AreaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaDetailView.swift; sourceTree = "<group>"; };
 		CFFD78AC25B2DF0200241801 /* AreaMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaMainScreen.swift; sourceTree = "<group>"; };
 		CFFD78B025B2EFC300241801 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
-		CFFD78B425B2F06300241801 /* HealthPriorityDualCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPriorityDualCircleView.swift; sourceTree = "<group>"; };
+		CFFD78B425B2F06300241801 /* HPDualCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDualCircleView.swift; sourceTree = "<group>"; };
 		CFFD78B725B2F0DB00241801 /* AreaFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaFormView.swift; sourceTree = "<group>"; };
 		CFFD78BA25B2F11B00241801 /* AreaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 				CFFD78AC25B2DF0200241801 /* AreaMainScreen.swift */,
 				CFFD78B725B2F0DB00241801 /* AreaFormView.swift */,
 				CFFD78BA25B2F11B00241801 /* AreaListView.swift */,
+				CF51E15825B3F7BB00FFA3B9 /* AreaDetailView.swift */,
 			);
 			path = Area;
 			sourceTree = "<group>";
@@ -109,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				CFFD78B025B2EFC300241801 /* ProgressCircleView.swift */,
-				CFFD78B425B2F06300241801 /* HealthPriorityDualCircleView.swift */,
+				CFFD78B425B2F06300241801 /* HPDualCircleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,13 +188,14 @@
 			files = (
 				CF4BD8B525B170F700DAC15F /* Superuser.xcdatamodeld in Sources */,
 				CFFD78B125B2EFC300241801 /* ProgressCircleView.swift in Sources */,
+				CF51E15925B3F7BB00FFA3B9 /* AreaDetailView.swift in Sources */,
 				CFFD78BB25B2F11B00241801 /* AreaListView.swift in Sources */,
 				CFFD78AD25B2DF0200241801 /* AreaMainScreen.swift in Sources */,
 				CF4BD8B225B170F700DAC15F /* Persistence.swift in Sources */,
 				CF4BD8AB25B170F500DAC15F /* ContentView.swift in Sources */,
 				CFFD78B825B2F0DB00241801 /* AreaFormView.swift in Sources */,
 				CF4BD8A925B170F500DAC15F /* SuperuserApp.swift in Sources */,
-				CFFD78B525B2F06300241801 /* HealthPriorityDualCircleView.swift in Sources */,
+				CFFD78B525B2F06300241801 /* HPDualCircleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

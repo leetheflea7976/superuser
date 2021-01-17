@@ -12,6 +12,7 @@ struct ProgressCircleView: View {
     var circleSize: CGFloat
     var lineWidth: CGFloat
     var color: Color
+    @State var initialized = false
     
     var body: some View {
         ZStack {
@@ -21,12 +22,18 @@ struct ProgressCircleView: View {
                 .foregroundColor(color)
                 .frame(width: circleSize, height: circleSize)
             Circle()
-                .trim(from: 0.0, to: CGFloat(min(self.progress / 10, 1.0)))
+                .trim(from: 0.0, to: CGFloat(min((initialized ? self.progress : 0) / 10, 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .foregroundColor(color)
                 .rotationEffect(Angle(degrees: 270.0))
                 .animation(.linear)
                 .frame(width: circleSize, height: circleSize)
+        }
+        .onAppear {
+            initialized = true
+        }
+        .onDisappear {
+            initialized = false
         }
     }
 }
