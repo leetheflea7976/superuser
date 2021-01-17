@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct AreaFormView: View {
-    var area: Area?
+struct EditAreaFormView: View {
+    @ObservedObject var area: Area
     
     @State var title = ""
     @State var emoji = ""
@@ -21,14 +21,11 @@ struct AreaFormView: View {
     
     private func addArea() {
         withAnimation {
-            let newArea = area ?? Area(context: viewContext)
-            newArea.id = area?.id ?? UUID()
-            newArea.createdAt = area?.createdAt ?? Date()
-            newArea.emoji = emoji
-            newArea.title = title
-            newArea.priority = priority
-            newArea.health = health
-            newArea.isProfessional = type == "Professional"
+            area.emoji = emoji
+            area.title = title
+            area.priority = priority
+            area.health = health
+            area.isProfessional = type == "Professional"
             
             do {
                 try viewContext.save()
@@ -42,7 +39,66 @@ struct AreaFormView: View {
     }
     
     var body: some View {
-        Text(area == nil ? "Add New Area" : "Edit Area")
+        AreaFormView(title: $title, emoji: $emoji, health: $health, priority: $priority, type: $type, isEdit: true, handleSubmit: {
+            presentationMode.wrappedValue.dismiss()
+            withAnimation {
+                area.emoji = emoji
+                area.title = title
+                area.priority = priority
+                area.health = health
+                area.isProfessional = type == "Professional"
+                try? viewContext.save()
+            }
+        })
+        .onAppear {
+            title = area.title!
+            emoji = area.emoji!
+            health = area.health
+            priority = area.priority
+            type = area.isProfessional ? "Professional" : "Personal"
+        }
+    }
+}
+
+struct NewAreaFormView: View {
+    @State var title = ""
+    @State var emoji = ""
+    @State var health: Int16 = 5
+    @State var priority: Int16 = 5
+    @State var type = "Personal"
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode
+    
+    var body: some View {
+        AreaFormView(title: $title, emoji: $emoji, health: $health, priority: $priority, type: $type, isEdit: false, handleSubmit: {
+            presentationMode.wrappedValue.dismiss()
+            withAnimation {
+                let newArea = Area(context: viewContext)
+                newArea.id = UUID()
+                newArea.createdAt = Date()
+                newArea.emoji = emoji
+                newArea.title = title
+                newArea.priority = priority
+                newArea.health = health
+                newArea.isProfessional = type == "Professional"
+                try? viewContext.save()
+            }
+        })
+    }
+}
+
+struct AreaFormView: View {
+    @Binding var title: String
+    @Binding var emoji: String
+    @Binding var health: Int16
+    @Binding var priority: Int16
+    @Binding var type: String
+    var isEdit: Bool
+    var handleSubmit: () -> Void
+    
+    var body: some View {
+        Text(isEdit ? "Edit Area" : "Add New Area")
             .fontWeight(.bold)
             .font(.title)
             .padding(.top, 24)
@@ -53,8 +109,8 @@ struct AreaFormView: View {
             }
             
             Section {
-                TitleSegmentedNumberPicker(end: 10, title: "Health", selection: $health)
-                TitleSegmentedNumberPicker(end: 10, title: "Priority", selection: $priority)
+                TitleSegmentedNumberPicker(end: 10, title: "Health", color: Color.red, selection: $health)
+                TitleSegmentedNumberPicker(end: 10, title: "Priority", color: Color.green, selection: $priority)
             }
             
             Section {
@@ -63,19 +119,11 @@ struct AreaFormView: View {
             
             Section {
                 Button {
-                    presentationMode.wrappedValue.dismiss()
-                    addArea()
+                    handleSubmit()
                 } label: {
-                    Text(area == nil ? "Add Area" : "Save")
+                    Text(isEdit ? "Save" : "Add Area")
                 }
             }
-        }
-        .onAppear {
-            title = area?.title ?? ""
-            emoji = area?.emoji ?? ""
-            health = area?.health ?? 5
-            priority = area?.priority ?? 5
-            type = area?.isProfessional == true ? "Professional" : "Personal"
         }
     }
 }
@@ -98,12 +146,15 @@ struct PersonalProfessionalPicker: View {
 struct TitleSegmentedNumberPicker: View {
     var end: Int16
     var title: String
+    var color: Color
     @Binding var selection: Int16
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
-                .foregroundColor(.gray)
+                .foregroundColor(color)
+                .fontWeight(.bold)
+                .padding(.bottom, 6)
             Picker(title, selection: $selection) {
                 ForEach(1...end, id: \.self) { i in
                     Text(String(i)).tag(i)
@@ -117,7 +168,8 @@ struct TitleSegmentedNumberPicker: View {
 
 struct AreaFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AreaFormView()
+//        AreaFormView()
+        EmptyView()
     }
 }
 

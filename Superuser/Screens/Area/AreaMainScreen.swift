@@ -97,11 +97,12 @@ struct AreaMainScreen: View {
                         }
                     }
                 )
+                .environment(\.managedObjectContext, viewContext)
             }
             .navigationBarTitle("Areas")
         }
         .sheet(isPresented: $showModal, content: {
-            AreaFormView()
+            NewAreaFormView()
         })
     }
 }

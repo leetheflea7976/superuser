@@ -16,7 +16,7 @@ struct AreaDetailView: View {
         VStack {
             DualProgressCircleView(innerValue: area.health, outerValue: area.priority, size: .large)
         }
-        .navigationTitle(area.title!)
+        .navigationTitle(area.emoji! + " " + area.title!)
         .navigationBarItems(trailing:
             Button {
                 showModal.toggle()
@@ -26,7 +26,7 @@ struct AreaDetailView: View {
             }
         )
         .sheet(isPresented: $showModal, content: {
-            AreaFormView(area: area)
+            EditAreaFormView(area: area).environment(\.managedObjectContext, viewContext)
         })
     }
 }
@@ -37,3 +37,4 @@ struct AreaDetailView_Previews: PreviewProvider {
         EmptyView()
     }
 }
+
