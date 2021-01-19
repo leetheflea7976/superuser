@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF016E4725B6B3FD008F56F7 /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF016E4625B6B3FD008F56F7 /* SortModel.swift */; };
 		CF4BD8A925B170F500DAC15F /* SuperuserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4BD8A825B170F500DAC15F /* SuperuserApp.swift */; };
 		CF4BD8AB25B170F500DAC15F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4BD8AA25B170F500DAC15F /* ContentView.swift */; };
 		CF4BD8AD25B170F700DAC15F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF4BD8AC25B170F700DAC15F /* Assets.xcassets */; };
@@ -17,7 +18,6 @@
 		CF51E15E25B433FB00FFA3B9 /* CirclesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E15D25B433FB00FFA3B9 /* CirclesViews.swift */; };
 		CF51E16225B436EC00FFA3B9 /* Numerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E16125B436EC00FFA3B9 /* Numerics.swift */; };
 		CF51E16625B56F7700FFA3B9 /* ObstacleMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E16525B56F7700FFA3B9 /* ObstacleMainView.swift */; };
-		CF51E16925B56FA300FFA3B9 /* SortModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E16825B56FA300FFA3B9 /* SortModels.swift */; };
 		CF51E17125B5716D00FFA3B9 /* ObstacleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17025B5716D00FFA3B9 /* ObstacleListView.swift */; };
 		CF51E17425B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17325B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift */; };
 		CF51E17725B5749F00FFA3B9 /* ObstacleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17625B5749F00FFA3B9 /* ObstacleFormView.swift */; };
@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF016E4625B6B3FD008F56F7 /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		CF4BD8A525B170F500DAC15F /* Superuser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Superuser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF4BD8A825B170F500DAC15F /* SuperuserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperuserApp.swift; sourceTree = "<group>"; };
 		CF4BD8AA25B170F500DAC15F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		CF51E15D25B433FB00FFA3B9 /* CirclesViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclesViews.swift; sourceTree = "<group>"; };
 		CF51E16125B436EC00FFA3B9 /* Numerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numerics.swift; sourceTree = "<group>"; };
 		CF51E16525B56F7700FFA3B9 /* ObstacleMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleMainView.swift; sourceTree = "<group>"; };
-		CF51E16825B56FA300FFA3B9 /* SortModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModels.swift; sourceTree = "<group>"; };
 		CF51E17025B5716D00FFA3B9 /* ObstacleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleListView.swift; sourceTree = "<group>"; };
 		CF51E17325B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSegmentedNumberPicker.swift; sourceTree = "<group>"; };
 		CF51E17625B5749F00FFA3B9 /* ObstacleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleFormView.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				CF51E16125B436EC00FFA3B9 /* Numerics.swift */,
-				CF51E16825B56FA300FFA3B9 /* SortModels.swift */,
+				CF016E4625B6B3FD008F56F7 /* SortModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,8 +231,8 @@
 				CF4BD8B525B170F700DAC15F /* Superuser.xcdatamodeld in Sources */,
 				CFFD78B125B2EFC300241801 /* ProgressCircleView.swift in Sources */,
 				CF51E15925B3F7BB00FFA3B9 /* AreaDetailView.swift in Sources */,
+				CF016E4725B6B3FD008F56F7 /* SortModel.swift in Sources */,
 				CF51E17C25B5792D00FFA3B9 /* SortMenuView.swift in Sources */,
-				CF51E16925B56FA300FFA3B9 /* SortModels.swift in Sources */,
 				CFFD78BB25B2F11B00241801 /* AreaListView.swift in Sources */,
 				CFFD78AD25B2DF0200241801 /* AreaMainView.swift in Sources */,
 				CF51E16625B56F7700FFA3B9 /* ObstacleMainView.swift in Sources */,
