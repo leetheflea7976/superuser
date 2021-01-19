@@ -14,7 +14,7 @@ struct AreaDetailView: View {
     
     var body: some View {
         VStack {
-            DualProgressCircleView(innerValue: area.health, outerValue: area.priority, size: .large)
+            HPCirclesView(area: area, size: .large)
         }
         .navigationTitle(area.emoji! + " " + area.title!)
         .navigationBarItems(trailing:

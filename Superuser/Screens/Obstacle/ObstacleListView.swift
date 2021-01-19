@@ -1,5 +1,5 @@
 //
-//  AreaListView.swift
+//  ObstacleListView.swift
 //  Superuser
 //
 //  Created by Phi on 2021-01-16.
@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct AreaListView: View {
-    private var _transform: (_: FetchedResults<Area>) -> Array<Area>
+struct ObstacleListView: View {
+    private var _transform: (_: FetchedResults<Obstacle>) -> Array<Obstacle>
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest private var areas: FetchedResults<Area>
-    @State var appeared = false
+    @FetchRequest private var obstacles: FetchedResults<Obstacle>
     
-    init(sortBy: [NSSortDescriptor] = [], transform: @escaping (_: FetchedResults<Area>) -> Array<Area> = { Array($0) }) {
-        _areas = .init(entity: Area.entity(),
+    init(sortBy: [NSSortDescriptor] = [], transform: @escaping (_: FetchedResults<Obstacle>) -> Array<Obstacle> = { Array($0) }) {
+        _obstacles = .init(entity: Obstacle.entity(),
                        sortDescriptors: sortBy,
                        animation: .default)
         _transform = transform
@@ -22,20 +21,20 @@ struct AreaListView: View {
     
     var body: some View {
         List {
-            ForEach(_transform(areas)) { area in
-                AreaListItemView(area: area)
+            ForEach(_transform(obstacles)) { obstacle in
+                ObstacleListItemView(obstacle: obstacle)
                     .environment(\.managedObjectContext, viewContext)
             }
             .onDelete(perform: deleteAreas)
         }
         .listStyle(PlainListStyle())
-        .animation(Animation.easeOut)
+        .animation(Animation.easeInOut)
     }
     
     private func deleteAreas(offsets: IndexSet) {
         withAnimation {
             viewContext.perform {
-                offsets.map { areas[$0] }.forEach(viewContext.delete)
+                offsets.map { obstacles[$0] }.forEach(viewContext.delete)
 
                 do {
                     try viewContext.save()
@@ -50,36 +49,45 @@ struct AreaListView: View {
     }
 }
 
-struct AreaListItemView: View {
-    @ObservedObject var area: Area
+struct ObstacleListItemView: View {
+    @ObservedObject var obstacle: Obstacle
     @State private var isLinkActive = false
     @Environment(\.managedObjectContext) private var viewContext
+    @State var moving = false
     
     var body: some View {
         Button {
             isLinkActive = true
         } label: {
             HStack {
-                Text(area.emoji ?? "")
-                Text(area.title ?? "")
+                Text(obstacle.emoji ?? "")
+                Text(obstacle.title ?? "")
                     .font(.system(.body, design: .serif))
                     .padding(.leading, 4)
                     .lineLimit(1)
                 Spacer()
-                HPCirclesView(area: area)
+                SPCirclesView(obstacle: obstacle)
             }
         }
-        .background(
-            NavigationLink(destination: AreaDetailView(area: area).environment(\.managedObjectContext, viewContext), isActive: $isLinkActive) {
-                EmptyView()
-            }
-            .hidden()
-        )
     }
 }
 
+struct MovingPiece: View {
+    @State var moving = false
+    
+    var body: some View {
+        Rectangle()
+            .foregroundColor(.red)
+            .frame(width: UIScreen.main.bounds.size.width * 2, height: 30, alignment: .center)
+            .offset(x: moving ? -UIScreen.main.bounds.size.width : -30)
+            .animation(Animation.linear(duration: 5).repeatForever(autoreverses: false))
+            .onAppear {
+                moving = true
+            }
+    }
+}
 
-struct AreaListView_Previews: PreviewProvider {
+struct ObstacleListView_Previews: PreviewProvider {
     static var previews: some View {
         AreaListView()
     }

@@ -14,9 +14,17 @@
 		CF4BD8B225B170F700DAC15F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4BD8B125B170F700DAC15F /* Persistence.swift */; };
 		CF4BD8B525B170F700DAC15F /* Superuser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF4BD8B325B170F700DAC15F /* Superuser.xcdatamodeld */; };
 		CF51E15925B3F7BB00FFA3B9 /* AreaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E15825B3F7BB00FFA3B9 /* AreaDetailView.swift */; };
-		CFFD78AD25B2DF0200241801 /* AreaMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78AC25B2DF0200241801 /* AreaMainScreen.swift */; };
+		CF51E15E25B433FB00FFA3B9 /* CirclesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E15D25B433FB00FFA3B9 /* CirclesViews.swift */; };
+		CF51E16225B436EC00FFA3B9 /* Numerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E16125B436EC00FFA3B9 /* Numerics.swift */; };
+		CF51E16625B56F7700FFA3B9 /* ObstacleMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E16525B56F7700FFA3B9 /* ObstacleMainView.swift */; };
+		CF51E16925B56FA300FFA3B9 /* SortModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E16825B56FA300FFA3B9 /* SortModels.swift */; };
+		CF51E17125B5716D00FFA3B9 /* ObstacleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17025B5716D00FFA3B9 /* ObstacleListView.swift */; };
+		CF51E17425B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17325B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift */; };
+		CF51E17725B5749F00FFA3B9 /* ObstacleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17625B5749F00FFA3B9 /* ObstacleFormView.swift */; };
+		CF51E17C25B5792D00FFA3B9 /* SortMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51E17B25B5792D00FFA3B9 /* SortMenuView.swift */; };
+		CFFD78AD25B2DF0200241801 /* AreaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78AC25B2DF0200241801 /* AreaMainView.swift */; };
 		CFFD78B125B2EFC300241801 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B025B2EFC300241801 /* ProgressCircleView.swift */; };
-		CFFD78B525B2F06300241801 /* HPDualCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B425B2F06300241801 /* HPDualCircleView.swift */; };
+		CFFD78B525B2F06300241801 /* DualProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B425B2F06300241801 /* DualProgressCircleView.swift */; };
 		CFFD78B825B2F0DB00241801 /* AreaFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78B725B2F0DB00241801 /* AreaFormView.swift */; };
 		CFFD78BB25B2F11B00241801 /* AreaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFD78BA25B2F11B00241801 /* AreaListView.swift */; };
 /* End PBXBuildFile section */
@@ -31,9 +39,17 @@
 		CF4BD8B425B170F700DAC15F /* Superuser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Superuser.xcdatamodel; sourceTree = "<group>"; };
 		CF4BD8B625B170F700DAC15F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF51E15825B3F7BB00FFA3B9 /* AreaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaDetailView.swift; sourceTree = "<group>"; };
-		CFFD78AC25B2DF0200241801 /* AreaMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaMainScreen.swift; sourceTree = "<group>"; };
+		CF51E15D25B433FB00FFA3B9 /* CirclesViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclesViews.swift; sourceTree = "<group>"; };
+		CF51E16125B436EC00FFA3B9 /* Numerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numerics.swift; sourceTree = "<group>"; };
+		CF51E16525B56F7700FFA3B9 /* ObstacleMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleMainView.swift; sourceTree = "<group>"; };
+		CF51E16825B56FA300FFA3B9 /* SortModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModels.swift; sourceTree = "<group>"; };
+		CF51E17025B5716D00FFA3B9 /* ObstacleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleListView.swift; sourceTree = "<group>"; };
+		CF51E17325B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSegmentedNumberPicker.swift; sourceTree = "<group>"; };
+		CF51E17625B5749F00FFA3B9 /* ObstacleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleFormView.swift; sourceTree = "<group>"; };
+		CF51E17B25B5792D00FFA3B9 /* SortMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenuView.swift; sourceTree = "<group>"; };
+		CFFD78AC25B2DF0200241801 /* AreaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaMainView.swift; sourceTree = "<group>"; };
 		CFFD78B025B2EFC300241801 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
-		CFFD78B425B2F06300241801 /* HPDualCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDualCircleView.swift; sourceTree = "<group>"; };
+		CFFD78B425B2F06300241801 /* DualProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualProgressCircleView.swift; sourceTree = "<group>"; };
 		CFFD78B725B2F0DB00241801 /* AreaFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaFormView.swift; sourceTree = "<group>"; };
 		CFFD78BA25B2F11B00241801 /* AreaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +84,7 @@
 		CF4BD8A725B170F500DAC15F /* Superuser */ = {
 			isa = PBXGroup;
 			children = (
+				CF51E16025B436CD00FFA3B9 /* Models */,
 				CFFD78AF25B2EF6900241801 /* Views */,
 				CFFD78A625B2DE9200241801 /* Screens */,
 				CF4BD8A825B170F500DAC15F /* SuperuserApp.swift */,
@@ -89,9 +106,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CF51E16025B436CD00FFA3B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF51E16125B436EC00FFA3B9 /* Numerics.swift */,
+				CF51E16825B56FA300FFA3B9 /* SortModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CF51E16425B56F5500FFA3B9 /* Obstacle */ = {
+			isa = PBXGroup;
+			children = (
+				CF51E16525B56F7700FFA3B9 /* ObstacleMainView.swift */,
+				CF51E17025B5716D00FFA3B9 /* ObstacleListView.swift */,
+				CF51E17625B5749F00FFA3B9 /* ObstacleFormView.swift */,
+			);
+			path = Obstacle;
+			sourceTree = "<group>";
+		};
 		CFFD78A625B2DE9200241801 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CF51E16425B56F5500FFA3B9 /* Obstacle */,
 				CFFD78A725B2DEB400241801 /* Area */,
 			);
 			path = Screens;
@@ -100,7 +137,7 @@
 		CFFD78A725B2DEB400241801 /* Area */ = {
 			isa = PBXGroup;
 			children = (
-				CFFD78AC25B2DF0200241801 /* AreaMainScreen.swift */,
+				CFFD78AC25B2DF0200241801 /* AreaMainView.swift */,
 				CFFD78B725B2F0DB00241801 /* AreaFormView.swift */,
 				CFFD78BA25B2F11B00241801 /* AreaListView.swift */,
 				CF51E15825B3F7BB00FFA3B9 /* AreaDetailView.swift */,
@@ -112,7 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				CFFD78B025B2EFC300241801 /* ProgressCircleView.swift */,
-				CFFD78B425B2F06300241801 /* HPDualCircleView.swift */,
+				CFFD78B425B2F06300241801 /* DualProgressCircleView.swift */,
+				CF51E15D25B433FB00FFA3B9 /* CirclesViews.swift */,
+				CF51E17325B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift */,
+				CF51E17B25B5792D00FFA3B9 /* SortMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,16 +226,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF51E17425B5746F00FFA3B9 /* TitleSegmentedNumberPicker.swift in Sources */,
+				CF51E17125B5716D00FFA3B9 /* ObstacleListView.swift in Sources */,
 				CF4BD8B525B170F700DAC15F /* Superuser.xcdatamodeld in Sources */,
 				CFFD78B125B2EFC300241801 /* ProgressCircleView.swift in Sources */,
 				CF51E15925B3F7BB00FFA3B9 /* AreaDetailView.swift in Sources */,
+				CF51E17C25B5792D00FFA3B9 /* SortMenuView.swift in Sources */,
+				CF51E16925B56FA300FFA3B9 /* SortModels.swift in Sources */,
 				CFFD78BB25B2F11B00241801 /* AreaListView.swift in Sources */,
-				CFFD78AD25B2DF0200241801 /* AreaMainScreen.swift in Sources */,
+				CFFD78AD25B2DF0200241801 /* AreaMainView.swift in Sources */,
+				CF51E16625B56F7700FFA3B9 /* ObstacleMainView.swift in Sources */,
+				CF51E16225B436EC00FFA3B9 /* Numerics.swift in Sources */,
 				CF4BD8B225B170F700DAC15F /* Persistence.swift in Sources */,
+				CF51E17725B5749F00FFA3B9 /* ObstacleFormView.swift in Sources */,
 				CF4BD8AB25B170F500DAC15F /* ContentView.swift in Sources */,
 				CFFD78B825B2F0DB00241801 /* AreaFormView.swift in Sources */,
 				CF4BD8A925B170F500DAC15F /* SuperuserApp.swift in Sources */,
-				CFFD78B525B2F06300241801 /* HPDualCircleView.swift in Sources */,
+				CF51E15E25B433FB00FFA3B9 /* CirclesViews.swift in Sources */,
+				CFFD78B525B2F06300241801 /* DualProgressCircleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

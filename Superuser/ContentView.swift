@@ -18,6 +18,7 @@ struct DummyScreen: View {
 
 struct ContentView: View {
     @State private var selection = "Areas"
+    @Environment(\.managedObjectContext) private var viewContext
     var haptic = UIImpactFeedbackGenerator(style: .soft)
     
     var body: some View {
@@ -27,7 +28,7 @@ struct ContentView: View {
                 title: "Areas",
                 selectedIcon: "square.grid.2x2.fill",
                 unselectedIcon: "square.grid.2x2",
-                content: AreaMainScreen()
+                content: AreaMainView().environment(\.managedObjectContext, viewContext)
             )
             TabItem(
                 selection: $selection,
@@ -38,10 +39,10 @@ struct ContentView: View {
             )
             TabItem(
                 selection: $selection,
-                title: "Do",
-                selectedIcon: "figure.walk.circle.fill",
-                unselectedIcon: "figure.walk.circle",
-                content: DummyScreen(screenName: "Do tab")
+                title: "Obstacles",
+                selectedIcon: "exclamationmark.triangle.fill",
+                unselectedIcon: "exclamationmark.triangle",
+                content: ObstacleMainView().environment(\.managedObjectContext, viewContext)
             )
             TabItem(
                 selection: $selection,
@@ -49,6 +50,13 @@ struct ContentView: View {
                 selectedIcon: "scroll.fill",
                 unselectedIcon: "scroll",
                 content: DummyScreen(screenName: "Principles tab")
+            )
+            TabItem(
+                selection: $selection,
+                title: "Do",
+                selectedIcon: "figure.walk.circle.fill",
+                unselectedIcon: "figure.walk.circle",
+                content: DummyScreen(screenName: "Do tab")
             )
         }
     }

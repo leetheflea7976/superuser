@@ -8,14 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct SortOption: Identifiable {
-    var id = UUID()
-    var label: String
-    var color: Color
-    var sort: [NSSortDescriptor]
-}
-
-struct AreaMainScreen: View {
+struct AreaMainView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @State var showModal = false
@@ -28,19 +21,19 @@ struct AreaMainScreen: View {
     @State var selectedSortOptionIndex = 0
     @State var selectedType = "All"
     var sortOptions = [
-        SortOption(label: "Priority", color: Color.red, sort: [
-            NSSortDescriptor(key: "priority", ascending: false),
-            NSSortDescriptor(key: "health", ascending: true)
+        SortOption(label: PriorityData.label, color: PriorityData.color, sort: [
+            NSSortDescriptor(key: PriorityData.key, ascending: false),
+            NSSortDescriptor(key: HealthData.key, ascending: true)
         ]),
-        SortOption(label: "Health", color: Color.green, sort: [
-            NSSortDescriptor(key: "health", ascending: false),
-            NSSortDescriptor(key: "priority", ascending: true)
+        SortOption(label: HealthData.label, color: HealthData.color, sort: [
+            NSSortDescriptor(key: HealthData.key, ascending: false),
+            NSSortDescriptor(key: PriorityData.key, ascending: true)
         ])
     ]
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 12) {
                 if (areas.contains { $0.isProfessional }) {
                     PersonalProfessionalPicker(type: $selectedType, withAll: true)
                 }
@@ -58,26 +51,7 @@ struct AreaMainScreen: View {
                     
                     // MARK: SORT MENU
                     if (areas.count > 0) {
-                        Menu {
-                            ForEach(sortOptions.indices) { i in
-                                Button(sortOptions[i].label, action: {
-                                    selectedSortOptionIndex = i
-                                })
-                            }
-                        } label: {
-                            HStack {
-                                Spacer()
-                                Text(sortOptions[selectedSortOptionIndex].label)
-                                    .fontWeight(.medium)
-                                    .foregroundColor(sortOptions[selectedSortOptionIndex].color)
-                                Image(systemName: "arrow.up")
-                                    .foregroundColor(sortOptions[selectedSortOptionIndex].color)
-                            }
-                            .frame(maxWidth: 200)
-                        }
-                        .onTapGesture {
-                            hapticImpact.impactOccurred()
-                        }
+                        SortMenu(selectedSortOptionIndex: $selectedSortOptionIndex, sortOptions: sortOptions)
                     }
                 }
                 .padding(.horizontal, 12)

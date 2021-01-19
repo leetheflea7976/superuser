@@ -1,4 +1,13 @@
 //
+//  ObstacleFormView.swift
+//  Superuser
+//
+//  Created by Phi on 2021-01-17.
+//
+
+import SwiftUI
+
+//
 //  AreaFormView.swift
 //  Superuser
 //
@@ -7,25 +16,23 @@
 
 import SwiftUI
 
-struct EditAreaFormView: View {
-    @ObservedObject var area: Area
+struct EditObstacleFormView: View {
+    @ObservedObject var obstacle: Obstacle
     
     @State var title = ""
     @State var emoji = ""
-    @State var health: Int16 = 5
+    @State var severity: Int16 = 5
     @State var priority: Int16 = 5
-    @State var type = "Personal"
     
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     
     private func addArea() {
         withAnimation {
-            area.emoji = emoji
-            area.title = title
-            area.priority = priority
-            area.health = health
-            area.isProfessional = type == "Professional"
+            obstacle.emoji = emoji
+            obstacle.title = title
+            obstacle.priority = priority
+            obstacle.severity = severity
             
             do {
                 try viewContext.save()
@@ -39,52 +46,48 @@ struct EditAreaFormView: View {
     }
     
     var body: some View {
-        AreaFormView(title: $title, emoji: $emoji, health: $health, priority: $priority, type: $type, isEdit: true, handleSubmit: {
+        ObstacleFormView(title: $title, emoji: $emoji, severity: $severity, priority: $priority, isEdit: true, handleSubmit: {
             presentationMode.wrappedValue.dismiss()
             withAnimation {
-                area.lastModified = Date()
-                area.emoji = emoji
-                area.title = title
-                area.priority = priority
-                area.health = health
-                area.isProfessional = type == "Professional"
+                obstacle.lastModified = Date()
+                obstacle.emoji = emoji
+                obstacle.title = title
+                obstacle.priority = priority
+                obstacle.severity = severity
                 try? viewContext.save()
             }
         })
         .onAppear {
-            title = area.title!
-            emoji = area.emoji!
-            health = area.health
-            priority = area.priority
-            type = area.isProfessional ? "Professional" : "Personal"
+            title = obstacle.title!
+            emoji = obstacle.emoji!
+            severity = obstacle.severity
+            priority = obstacle.priority
         }
     }
 }
 
-struct NewAreaFormView: View {
+struct NewObstacleFormView: View {
     @State var title = ""
     @State var emoji = ""
-    @State var health: Int16 = 5
+    @State var severity: Int16 = 5
     @State var priority: Int16 = 5
-    @State var type = "Personal"
     
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        AreaFormView(title: $title, emoji: $emoji, health: $health, priority: $priority, type: $type, isEdit: false, handleSubmit: {
+        ObstacleFormView(title: $title, emoji: $emoji, severity: $severity, priority: $priority, isEdit: false, handleSubmit: {
             presentationMode.wrappedValue.dismiss()
             withAnimation {
                 viewContext.perform {
-                    let newArea = Area(context: viewContext)
+                    let newArea = Obstacle(context: viewContext)
                     newArea.id = UUID()
                     newArea.createdAt = Date()
                     newArea.lastModified = Date()
                     newArea.emoji = emoji
                     newArea.title = title
                     newArea.priority = priority
-                    newArea.health = health
-                    newArea.isProfessional = type == "Professional"
+                    newArea.severity = severity
                     try? viewContext.save()
                 }
             }
@@ -92,12 +95,11 @@ struct NewAreaFormView: View {
     }
 }
 
-struct AreaFormView: View {
+struct ObstacleFormView: View {
     @Binding var title: String
     @Binding var emoji: String
-    @Binding var health: Int16
+    @Binding var severity: Int16
     @Binding var priority: Int16
-    @Binding var type: String
     var isEdit: Bool
     var handleSubmit: () -> Void
     
@@ -113,12 +115,8 @@ struct AreaFormView: View {
             }
             
             Section {
-                TitleSegmentedNumberPicker(end: 10, title: HealthData.label, color: HealthData.color, selection: $health)
+                TitleSegmentedNumberPicker(end: 10, title: SeverityData.label, color: SeverityData.color, selection: $severity)
                 TitleSegmentedNumberPicker(end: 10, title: PriorityData.label, color: PriorityData.color, selection: $priority)
-            }
-            
-            Section {
-                PersonalProfessionalPicker(type: $type)
             }
             
             Section {
@@ -132,25 +130,9 @@ struct AreaFormView: View {
     }
 }
 
-struct PersonalProfessionalPicker: View {
-    @Binding var type: String
-    var withAll = false
-    var types = ["Personal", "Professional"]
-    
-    var body: some View {
-        Picker("Type", selection: $type) {
-            ForEach((withAll ? ["All"] : []) + types, id: \.self) { type in
-                Text(type).tag(type)
-            }
-        }
-        .pickerStyle(SegmentedPickerStyle())
-    }
-}
-
-struct AreaFormView_Previews: PreviewProvider {
+struct ObstacleFormView_Previews: PreviewProvider {
     static var previews: some View {
-//        AreaFormView()
+//        ObstacleFormView()
         EmptyView()
     }
 }
-
